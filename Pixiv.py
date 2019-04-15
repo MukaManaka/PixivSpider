@@ -131,6 +131,8 @@ class Pixiv(object):
                 print('index:{}/50   id = {}  已保存' .format(i+1,data_id) )
             else:
                 print('跳过index:{}'.format(i+1))
+            if i >= 19:
+                break
 
 
         
