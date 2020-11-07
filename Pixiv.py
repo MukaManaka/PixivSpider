@@ -1,12 +1,14 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-from requests.packages.urllib3.exceptions import InsecureRequestWarning # 未知操作
-from bs4 import BeautifulSoup
-import requests
 import json
-import time
-import re
 import os
+import re
+import time
+
+import requests
+from bs4 import BeautifulSoup
+from requests.packages.urllib3.exceptions import InsecureRequestWarning  # 未知操作
+
 # import sys
 # non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
 # 需打开SS全局代理
@@ -26,8 +28,8 @@ class Pixiv(object):
         'cache-control': 'max-age=0',
         'referer': 'https://www.pixiv.net/ranking.php?mode=daily&content=illust',
         "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-        'accept-encoding': 'gzip, deflate, br'
-                               }
+        'accept-encoding': 'gzip, deflate, br'}
+        
         self.proxies = {'http': 'http://127.0.0.1:1080'}
         self.session = requests.session()
         # self.rawcookies = open('cookies.txt',encoding = 'utf-8').read()
@@ -181,8 +183,9 @@ def save_html(index_content):
     with open('foo.html', 'w', encoding='utf-8') as f:
         f.write(index_content)
 
-
+# 主程序
 def main():
+    # 账号密码
     user = input('请输入账号(邮箱)：')
     password = input('请输入密码：')
     pix = Pixiv(user, password)
@@ -198,7 +201,7 @@ def main():
 
 if __name__ == '__main__':
     DELAY = False
-    DEBUG = False
+    DEBUG = True
     main()
     input('Finished.')
 
