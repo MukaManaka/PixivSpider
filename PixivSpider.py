@@ -213,7 +213,7 @@ if __name__ == '__main__':
         save_cookies(pix.session.cookies)
     
 
-    pix.daily()
+    pix.daily()# 运行
 
 
 
